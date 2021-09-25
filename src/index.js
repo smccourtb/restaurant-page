@@ -2,30 +2,29 @@ import './style.css';
 import Icon from './apple.svg';
 import Icon2 from './apple-color.svg';
 
-const material = (() => {
-    const appleIcon = (() => {
-        const myIcon = new Image();
-        myIcon.src = Icon;
-        myIcon.classList.add(".apple")
 
-        myIcon.addEventListener('mouseover', () => {
-            if (myIcon.src === Icon) {
-                myIcon.src = Icon2;
-            }
-        });
-        return myIcon;
+const appleIcon = () => {
+    const apple = new Image();
+    apple.src = Icon;
+    apple.classList.add("apple")
+
+    apple.addEventListener('mouseover', () => {
+        apple.classList.add("wiggler");
+        if (apple.src === Icon) {
+            apple.src = Icon2;
+        }
     });
-    return {appleIcon}
-})();
-
-
-const content = document.getElementById("content")
-
-
-
+    return apple;
+};
 
 const header = (() => {
-    const header = (() => {
+    const headerContainer = (() => {
+        const cont = document.createElement('div');
+        cont.classList.add('header-container');
+        return cont;
+    })();
+
+    const title = (() => {
         const banner = document.createElement('div');
         banner.innerHTML = "The Orchard";
         banner.classList.add('header');
@@ -38,20 +37,49 @@ const header = (() => {
         return table;
     })();
 
+    const appleTab = (label) => {
+        const plateContainer = document.createElement('div');
+        const plate = document.createElement('div');
+        const myIcon = appleIcon()
+        const text = document.createElement('div');
+        text.classList.add("text");
+        text.innerHTML = label;
+        plateContainer.classList.add("plate-container");
+        plate.classList.add("plate");
+        plateContainer.appendChild(plate);
+        plateContainer.appendChild(text);
+        plate.appendChild(myIcon);
+        return plateContainer;
+    };
 
-    return {header, table}
-
+    const createHeader = (() =>{
+        headerContainer.append(title);
+        headerContainer.append(table);
+        const labels = ["Menu", "Home", "About"]
+        for (let i = 0; i < 3; i++) {
+            const x = appleTab(labels[i]);
+            table.append(x)
+        };
+    })();
+    return {headerContainer}
 })();
 
-content.appendChild(header.header);
-content.appendChild(header.table);
+const content = (() => {
+    const main = document.getElementById("content")
+    const applyNodes = (() => {
+        main.appendChild(header.headerContainer);
+    })();
+})();
 
-content.appendChild(appleTabs("Menu"));
-content.appendChild(appleTabs("Home"));
-content.appendChild(appleTabs("Contact"));
-content.append(addSun());
-content.appendChild(appleCard());
-content.appendChild(addGround());
+// content.appendChild(header.header);
+// content.appendChild(header.table);
+
+// content.appendChild(appleTabs("Menu"));
+// content.appendChild(appleTabs("Home"));
+// content.appendChild(appleTabs("Contact"));
+// content.append(addSun());
+// content.appendChild(appleCard());
+// content.appendChild(addGround());
 // content.appendChild(addFooter());
 // Header
     // restuarant title
