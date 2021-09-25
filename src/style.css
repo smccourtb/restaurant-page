@@ -17,7 +17,9 @@ body {
 #content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+    padding: 0px;
+    margin: 0px;
 }
 
 .left {
@@ -29,10 +31,10 @@ body {
 }
 
 .right {
+    padding: 0px;
     background-image: linear-gradient(to right, rgba(163, 123, 86, .85), rgba(92, 69, 48, .85));
-    height: 100vh;
+    height: auto;
     width: 100px;
-    position: 100vw;
     box-shadow: 0px 0px 3px 0px rgb(92, 69, 48);
 
 }
@@ -188,9 +190,98 @@ body {
     font-size: 16px;
     color: rgb(25, 25, 48);
     padding-bottom: 100px;
+    z-index: 3;
 }
 
 .ground {
-    width: 100vw;
-    height: 25%;
+    width: 100%;
+    height: 33vh;
+    background-color: rgb(104, 163, 104);
+    border-radius: 100% 100% 0px 0px;
+    border-style: solid;
+    border-color: rgb(79, 126, 79);
+    border-width: 3px;
+}
+
+.treeContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-left: 600px;
+    width: 150px;
+    scale: 1.2;
+}
+
+.treeTrunk {
+    height: 0;
+    width: 15px;
+    border-bottom: 80px solid rgb(187, 146, 92);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.treeLeavesContainer {
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding-bottom: 100px;
+    padding-left: 25px;
+}
+
+.treeTrunkContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.treeLeaves {
+    width: 100px;
+    height: 100px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(8, 99, 8);
+    border-radius: 50% 50% 35% 35%;
+    background-color: green;
+    padding: 10px;
+    position: absolute;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .5);
+}
+
+.treeLeaves2 {
+    width: 50px;
+    height: 50px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(11, 116, 11);
+    border-radius: 50% 50% 35% 35%;
+    background-color: rgb(3, 146, 3);
+    position: absolute;
+    z-index: 3;
+    margin-left: 75px;
+    margin-top: 50px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .5);
+}
+
+.treeLeaves3 {
+    width: 60px;
+    height: 60px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(11, 116, 11);
+    border-radius: 50% 50% 35% 35%;
+    background-color: rgb(3, 146, 3);
+    position: absolute;
+    z-index: 2;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .5);
+}
+
+
+
+.treeApple {
+    width: 20px;
+    margin: 5px;
+    position: relative;
+    z-index: 5;
+
 }

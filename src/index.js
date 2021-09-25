@@ -1,12 +1,17 @@
 import './style.css';
 import Icon from './apple.svg';
 import Icon2 from './apple-color.svg';
+
 const content = document.getElementById("content")
 const left = document.createElement('div')
 const right = document.createElement('div')
+
 left.classList.add("left")
 right.classList.add("right")
 content.appendChild(left);
+const ground = document.createElement('div')
+ground.classList.add('ground');
+
 content.appendChild(right);
  function component() {
     const header = document.createElement('div');
@@ -19,6 +24,7 @@ content.appendChild(right);
  }
 
 left.appendChild(component());
+
 
 function aboutUs () {
     const cardContainer = document.createElement('div')
@@ -54,6 +60,52 @@ function aboutUs () {
 }
 
 left.appendChild(aboutUs());
+left.appendChild(ground)
+const treeContainer = document.createElement('div');
+const treeTrunk = document.createElement('div');
+const treeLeaves = document.createElement('div');
+const treeLeaves2 = document.createElement('div');
+const treeLeaves3 = document.createElement('div');
+
+const treeLeavesContainer = document.createElement('div');
+const treeTrunkContainer = document.createElement('div');
+treeLeavesContainer.classList.add('treeLeavesContainer');
+treeTrunkContainer.classList.add('treeTrunkContainer');
+
+treeContainer.classList.add('treeContainer');
+treeTrunk.classList.add('treeTrunk');
+treeLeaves.classList.add('treeLeaves');
+treeLeaves2.classList.add('treeLeaves2');
+treeLeaves3.classList.add('treeLeaves3');
+
+
+const myIcon = new Image();
+myIcon.src = Icon;
+myIcon.classList.add("treeApple")
+myIcon.addEventListener('mouseover', () =>{
+    myIcon.classList.add("wiggler")
+    if (myIcon.src === Icon) {
+        myIcon.src = Icon2;
+    }
+})
+myIcon.addEventListener('click', () => {
+    const elem = document.querySelector(".treeApple");   
+    elem.classList.toggle("animation")
+    elem.classList.toggle("wiggler")
+    setTimeout(() => {elem.classList.toggle("animation")}, 1300)
+  })
+ground.append(treeContainer)
+treeContainer.append(treeTrunkContainer)
+treeContainer.append(treeLeavesContainer)
+
+treeTrunkContainer.append(treeTrunk)
+
+treeLeavesContainer.append(treeLeaves)
+treeLeavesContainer.append(treeLeaves2)
+treeLeavesContainer.append(treeLeaves3)
+
+
+treeLeaves.append(myIcon)
 const cardContainer = document.querySelector('.card-container')
 const card = document.querySelector('.about-card')
 const upperCard = document.createElement('div');
