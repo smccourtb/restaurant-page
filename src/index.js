@@ -26,23 +26,34 @@ content.appendChild(right);
 left.appendChild(component());
 
 
-function aboutUs () {
+
+// APPLE CARD STUFF
+function appleCard () {
     const cardContainer = document.createElement('div')
-    const table = document.querySelector(".table")
     const card = document.createElement('div')
-    
-    const plate = document.createElement('div')
     cardContainer.classList.add("card-container")
     card.classList.add('about-card')
     card.innerHTML = "Here at The Orchard we have been tending to our apple trees for over 75 years. Every dish on the menu is made from our organically grown apples from scratch."
+    cardContainer.append(card)
+    return cardContainer
+}
+
+function appleTabs (label) {
+    const plateContainer = document.createElement('div');
+    const table = document.querySelector(".table");
+    const plate = document.createElement('div');
+    const text = document.createElement('div')
+    text.classList.add("text");
+    text.innerHTML = label
+    plateContainer.classList.add("plate-container")
+    table.appendChild(plateContainer)
     // Add the image to our existing div.
     const myIcon = new Image();
     myIcon.src = Icon;
     myIcon.classList.add("apple")
     plate.classList.add("plate")
-    table.appendChild(plate)
+    plateContainer.appendChild(plate)
     plate.appendChild(myIcon);
-    cardContainer.append(card)
     myIcon.addEventListener('mouseover', () =>{
         myIcon.classList.add("wiggler")
         if (myIcon.src === Icon) {
@@ -55,17 +66,36 @@ function aboutUs () {
         elem.classList.toggle("wiggler")
         setTimeout(() => {elem.classList.toggle("animation")}, 1300)
       })
+    plateContainer.appendChild(text)
     
-    return cardContainer
+    return table
 }
+const textLabels = ["Menu", "Home", "Contact"]
+left.appendChild(appleTabs("Menu"));
+left.appendChild(appleTabs("Home"));
+left.appendChild(appleTabs("Contact"));
+// SUN STUFF
+const sunContainer = document.createElement('div');
+const sun1 = document.createElement('div');
+const sun2 = document.createElement('div');
+const sun3 = document.createElement('div');
+sunContainer.classList.add('sunContainer')
+sun1.classList.add('sun-center');
+sun2.classList.add('sun-middle');
+sun3.classList.add('sun-outer');
+left.append(sunContainer)
+sunContainer.append(sun3)
+sun3.append(sun2)
+sun2.append(sun1)
+left.appendChild(appleCard())
 
-left.appendChild(aboutUs());
 left.appendChild(ground)
 const treeContainer = document.createElement('div');
 const treeTrunk = document.createElement('div');
 const treeLeaves = document.createElement('div');
 const treeLeaves2 = document.createElement('div');
 const treeLeaves3 = document.createElement('div');
+
 
 const treeLeavesContainer = document.createElement('div');
 const treeTrunkContainer = document.createElement('div');

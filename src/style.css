@@ -34,7 +34,7 @@ body {
     padding: 0px;
     background-image: linear-gradient(to right, rgba(163, 123, 86, .85), rgba(92, 69, 48, .85));
     height: auto;
-    width: 100px;
+    width: 10%;
     box-shadow: 0px 0px 3px 0px rgb(92, 69, 48);
 
 }
@@ -142,7 +142,8 @@ body {
     border-radius: 0px 0px 10px 10px;
     border-style: solid;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 5px 100px;
 }
 
 .plate {
@@ -211,6 +212,8 @@ body {
     margin-left: 600px;
     width: 150px;
     scale: 1.2;
+    margin-top: -100px;
+    margin-left: 250px;
 }
 
 .treeTrunk {
@@ -284,4 +287,77 @@ body {
     position: relative;
     z-index: 5;
 
+}
+
+.sunContainer {
+    align-self: flex-start;
+    width: 175px;
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -100px;
+    margin-left: 75px;
+    scale: 1.5;
+}
+
+.sun-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgb(248, 248, 164);
+}
+
+.sun-middle {
+    animation: sunMiddle 7s ease infinite;
+    animation-direction: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: rgba(248, 248, 164, 0.562);
+}
+
+.sun-outer {
+    animation: sunOuter 5s ease infinite;
+    animation-direction: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(248, 248, 164, 0.3);
+}
+
+@keyframes sunMiddle {
+    50% {
+        scale: .98;
+    }
+}
+
+@keyframes sunOuter {
+    50% {
+        scale: 1.05;
+    }
+}
+
+.plate-container {
+    font-family: 'DrukaatieBurti';
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.text {
+    color: black;
 }
