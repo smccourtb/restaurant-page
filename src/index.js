@@ -1,11 +1,12 @@
 import {content, Props} from './homePage.js'
-//import {} from './menuPage.js'
+import {geegee} from './menuPage.js'
+import {about} from './aboutPage.js'
 import './style.css';
 import Icon from './apple.svg';
 import Icon2 from './apple-color.svg';
 // const cont = (content)
 
-
+const main = document.getElementById("content")
 const header = (() => {
 
     const appleIcon = () => {
@@ -14,6 +15,13 @@ const header = (() => {
         apple.classList.add("apple")
     
         apple.addEventListener('mouseover', () => {
+            apple.classList.add("wiggler");
+            if (apple.src === Icon) {
+                apple.src = Icon2;
+            }
+        });
+
+        apple.addEventListener('click', () => {
             apple.classList.add("wiggler");
             if (apple.src === Icon) {
                 apple.src = Icon2;
@@ -56,18 +64,33 @@ const header = (() => {
         return plateContainer;
     };
 
-    
+    // ties everything together and labels the tabs
     headerContainer.append(title);
     headerContainer.append(table);
     const labels = ["Menu", "Home", "About"]
     for (let i = 0; i < 3; i++) {
         const x = appleTab(labels[i]);
+        x.addEventListener('click', () => {
+            main.replaceChildren()
+            main.append(header.headerContainer)
+            switch (labels[i]) {
+                case "Menu":
+                    
+                    geegee.applyNodes();
+                    break;
+                case "About":
+                    break;
+                default:
+                    content.applyNodes()
+            }
+            
+        })
         table.append(x)
     };
-    
+    main.append(headerContainer)
     return {headerContainer}
 })();
 
-const main = document.getElementById("content")
-main.append(header.headerContainer)
+
+
 content.applyNodes()
